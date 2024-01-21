@@ -6,3 +6,9 @@ In this app, users can realize CRUD operations (create, read, update and delete)
 Technologies: React.js + Typescript
 
 Created with Vite.
+
+- Bootstrap for styling and responsiveness
+- React Router for routing and navigation
+- Typescript for data typing
+- React Form for form creation
+
