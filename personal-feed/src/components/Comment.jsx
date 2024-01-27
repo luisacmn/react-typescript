@@ -3,10 +3,18 @@ import styles from "./Comment.module.css";
 import { Avatar } from "./Avatar";
 
 // eslint-disable-next-line react/prop-types
-export function Comment( {content} ) {
+export function Comment({ content, onDeleteComment }) {
+
+  function handleDeleteComment() {
+    onDeleteComment(content)
+  }
+
   return (
     <div className={styles.comment}>
-      <Avatar hasBorder={false} src="https://avatars.githubusercontent.com/u/72585783?v=4" />
+      <Avatar
+        hasBorder={false}
+        src="https://avatars.githubusercontent.com/u/72585783?v=4"
+      />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
@@ -18,7 +26,7 @@ export function Comment( {content} ) {
               </time>
             </div>
 
-            <button title="Delete comment">
+            <button title="Delete comment" onClick={handleDeleteComment}>
               <Trash size={24} />
             </button>
           </header>
@@ -31,7 +39,6 @@ export function Comment( {content} ) {
             Like <span>20</span>
           </button>
         </footer>
-
       </div>
     </div>
   );

@@ -16,11 +16,11 @@ const posts = [
     content: [
       {
         type: "paragraph",
-        content: "Fala galeraa 👋",
+        content: "Hello guys 👋",
       },
       {
         type: "paragraph",
-        content: "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀",
+        content: "I just uploaded another project to my portfolio. It's a project I did at NLW Return. The name of the project is DoctorCare 🚀",
       },
       {
         type: "link",
@@ -39,11 +39,11 @@ const posts = [
     content: [
       {
         type: "paragraph",
-        content: "Fala pessoal 👋",
+        content: "Hello everyone 👋",
       },
       {
         type: "paragraph",
-        content: "Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui 💪🏻 ",
+        content: "I finally finished my new website/portfolio. It was quite a challenge to create the entire design and code it on the nail, but I managed 💪🏻 ",
       },
       {
         type: "link",
