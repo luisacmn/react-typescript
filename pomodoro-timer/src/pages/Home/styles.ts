@@ -100,6 +100,11 @@ export const StartButton = styled.button`
   background: ${(props) => props.theme['green-500']};
   color: ${(props) => props.theme['gray-100']};
 
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
   &:not(:disabled):hover {
     background: ${(props) => props.theme['green-700']};
   }
