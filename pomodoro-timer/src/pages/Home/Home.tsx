@@ -1,4 +1,4 @@
-import { Play } from 'phosphor-react'
+import { HandPalm, Play } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { v4 as uuidv4 } from 'uuid'
@@ -12,6 +12,7 @@ import {
   MinutesInput,
   Separator,
   StartButton,
+  StopButton,
   TaskInput,
 } from './styles'
 import { useEffect, useState } from 'react'
@@ -34,6 +35,7 @@ interface Cycle {
   task: string
   minutesAmount: number
   startDate: Date
+  interruptedDate?: Date
 }
 
 export function Home() {
@@ -84,6 +86,20 @@ export function Home() {
     reset()
   }
 
+  function handleInterruptCycle() {
+    setCycles(
+      cycles.map((cycle) => {
+        if (cycle.id === activeCycleId) {
+          return { ...cycle, interruptedDate: new Date() }
+        }
+
+        return cycle
+      }),
+    )
+
+    setActiveCycleId(null)
+  }
+
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
   const currentSeconds = activeCycle ? totalSeconds - amountSeccondsPassed : 0
 
@@ -111,6 +127,7 @@ export function Home() {
             id="task"
             list="task-suggestions"
             placeholder="Add a name to your project..."
+            disabled={!!activeCycle}
             {...register('task')}
           />
 
@@ -130,6 +147,7 @@ export function Home() {
             step={5}
             min={5}
             max={60}
+            disabled={!!activeCycle}
             {...register('minutesAmount', { valueAsNumber: true })}
           />
 
@@ -144,10 +162,17 @@ export function Home() {
           <span>{seconds[1]}</span>
         </CountDownContainer>
 
-        <StartButton disabled={isSubmitDisabled} type="submit">
-          <Play size={24} />
-          Start
-        </StartButton>
+        {activeCycle ? (
+          <StopButton type="button" onClick={handleInterruptCycle}>
+            <HandPalm size={24} />
+            Stop
+          </StopButton>
+        ) : (
+          <StartButton disabled={isSubmitDisabled} type="submit">
+            <Play size={24} />
+            Start
+          </StartButton>
+        )}
       </form>
     </HomeContainer>
   )
