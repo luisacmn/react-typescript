@@ -2,21 +2,22 @@
 ### Technologies: TypeScript and React
 
 ### Topics:
-- Created with vite
-- Npm to manager project dependencies and packages
-- Styled-components to create UI and style
+- Setup: Vite
+- Dependencies and packages management: Npm
+- UI and style: Styled-Components
 - React componentization for reusable componets and code organization
-- Routes and navigation with react-router-DOM
-- Context API for global state management and data sharing
-- Form validation with react-hook-form
-- Redux for managing complex state
+- Routes and navigation: react-router-DOM
+- State management and data sharing: Context API
+- Form validation: react-hook-form
 
 ## B3 Finance 
 ### Technologies: TypeScript and React
 
 ### Topics:
-- Created with vite
-- Npm to manager project dependencies and packages
-- Styled-components to create UI and style
+- Setup: Vite
+- Dependencies and packages management: Npm
+- UI and style: Styled-Components
 - React componentization for reusable componets and code organization
-- Routes and navigation with react-router-DOM
+- Routes and navigation: react-router-DOM
+- State management and data sharing: Context API
+- Form validation: react-hook-form
