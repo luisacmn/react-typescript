@@ -1,28 +1,39 @@
 import { SearchForm } from "../SearchForm/SearchForm";
 import { PriceColor, TableContainer, TableContent } from "./styles";
 
-export function Table() {
+interface Transaction {
+  id: number;
+  description: string;
+  type: "income" | "outcome";
+  price: number;
+  category: string;
+  createdAt: string;
+}
+
+interface Props {
+  transactions: Transaction[];
+}
+
+export function Table({ transactions }: Props) {
   return (
     <TableContainer>
       <SearchForm />
       <TableContent>
         <tbody>
-          <tr>
-            <td width="50%">Website Development</td>
-            <td>
-              <PriceColor variant="income">$ 12.000,00</PriceColor>
-            </td>
-            <td>Service</td>
-            <td>02/02/24</td>
-          </tr>
-          <tr>
-            <td width="50%">Dinner</td>
-            <td>
-              <PriceColor variant="outcome">- $ 200,00</PriceColor>
-            </td>
-            <td>Food</td>
-            <td>12/02/24</td>
-          </tr>
+          {transactions.map((transaction) => {
+            return (
+              <tr key={transaction.id}>
+                <td width="50%">{transaction.description}</td>
+                <td>
+                  <PriceColor variant={transaction.type}>
+                    {transaction.price}
+                  </PriceColor>
+                </td>
+                <td>{transaction.category}</td>
+                <td>{transaction.createdAt}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </TableContent>
     </TableContainer>
