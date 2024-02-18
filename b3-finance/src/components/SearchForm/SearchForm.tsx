@@ -1,39 +1,44 @@
+import { Formik, Field, ErrorMessage } from "formik";
 import { MagnifyingGlass } from "phosphor-react";
 import { SearchFormContainer } from "./styles";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 
-const searchFormSchema = z.object({
-  searchInput: z.string(),
-});
-
-type SearchFormInputs = z.infer<typeof searchFormSchema>;
+interface SearchFormValues {
+  searchInput: string;
+}
 
 export function SearchForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<SearchFormInputs>({
-    resolver: zodResolver(searchFormSchema),
-  });
+  function handleSearchTransactions(values: SearchFormValues) {
+    console.log(values.searchInput);
+  }
 
-  function handleSearchTransactions(data: SearchFormInputs) {
-    console.log(data);
+  function validate(values: SearchFormValues) {
+    const errors: Partial<SearchFormValues> = {};
+    if (!values.searchInput) {
+      errors.searchInput = "Search input is required";
+    }
+    return errors;
   }
 
   return (
-    <SearchFormContainer onSubmit={handleSubmit(handleSearchTransactions)}>
-      <input
-        type="text"
-        placeholder="Search for transactions"
-        {...register("searchInput")}
-      />
-      <button type="submit" disabled={isSubmitting}>
-        <MagnifyingGlass size={20} />
-        Search
-      </button>
-    </SearchFormContainer>
+    <Formik
+      initialValues={{ searchInput: "" }}
+      onSubmit={handleSearchTransactions}
+      validate={validate}
+    >
+      {({ handleSubmit }) => (
+        <SearchFormContainer onSubmit={handleSubmit}>
+          <Field
+            type="text"
+            name="searchInput"
+            placeholder="Search for transactions"
+          />
+          <ErrorMessage name="searchInput" component="div" />
+          <button type="submit">
+            <MagnifyingGlass size={20} />
+            Search
+          </button>
+        </SearchFormContainer>
+      )}
+    </Formik>
   );
 }
