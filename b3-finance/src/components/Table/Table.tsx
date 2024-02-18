@@ -1,20 +1,11 @@
+import { useContext } from "react";
 import { SearchForm } from "../SearchForm/SearchForm";
 import { PriceColor, TableContainer, TableContent } from "./styles";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 
-interface Transaction {
-  id: number;
-  description: string;
-  type: "income" | "outcome";
-  price: number;
-  category: string;
-  createdAt: string;
-}
+export function Table() {
+  const { transactions } = useContext(TransactionsContext);
 
-interface Props {
-  transactions: Transaction[];
-}
-
-export function Table({ transactions }: Props) {
   return (
     <TableContainer>
       <SearchForm />

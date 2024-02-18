@@ -1,34 +1,46 @@
-import { CustomArrowCircleDown, CustomArrowCircleUp, CustomCurrency, SummaryCard, SummaryContainer } from "./styles";
+import { useContext } from "react";
+import {
+  CustomArrowCircleDown,
+  CustomArrowCircleUp,
+  CustomCurrency,
+  SummaryCard,
+  SummaryContainer,
+} from "./styles";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 
 export function Summary() {
-    return (
-        <SummaryContainer>
-            <SummaryCard>
-                <header>
-                    <span>Inputs</span>
-                    <CustomArrowCircleUp size={32} />
-                </header>
+  const { transactions } = useContext(TransactionsContext);
 
-                <strong>$ 17.400,00</strong>
-            </SummaryCard>
+  console.log(transactions);
 
-            <SummaryCard>
-                <header>
-                    <span>Outputs</span>
-                    <CustomArrowCircleDown size={32} />
-                </header>
+  return (
+    <SummaryContainer>
+      <SummaryCard>
+        <header>
+          <span>Inputs</span>
+          <CustomArrowCircleUp size={32} />
+        </header>
 
-                <strong>$ 17.400,00</strong>
-            </SummaryCard>
+        <strong>$ 17.400,00</strong>
+      </SummaryCard>
 
-            <SummaryCard variant="green">
-                <header>
-                    <span>Total</span>
-                    <CustomCurrency size={32} />
-                </header>
+      <SummaryCard>
+        <header>
+          <span>Outputs</span>
+          <CustomArrowCircleDown size={32} />
+        </header>
 
-                <strong>$ 17.400,00</strong>
-            </SummaryCard>
-        </SummaryContainer>
-    )
+        <strong>$ 17.400,00</strong>
+      </SummaryCard>
+
+      <SummaryCard variant="green">
+        <header>
+          <span>Total</span>
+          <CustomCurrency size={32} />
+        </header>
+
+        <strong>$ 17.400,00</strong>
+      </SummaryCard>
+    </SummaryContainer>
+  );
 }
