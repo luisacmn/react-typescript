@@ -1,44 +1,44 @@
-import { Formik, Field, ErrorMessage } from "formik";
 import { MagnifyingGlass } from "phosphor-react";
+import { useForm } from "react-hook-form";
 import { SearchFormContainer } from "./styles";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useContext } from "react";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 
-interface SearchFormValues {
-  searchInput: string;
-}
+const searchFormSchema = z.object({
+  query: z.string(),
+});
+
+type SearchFormInputs = z.infer<typeof searchFormSchema>;
 
 export function SearchForm() {
-  function handleSearchTransactions(values: SearchFormValues) {
-    console.log(values.searchInput);
-  }
+  const { getTransactions } = useContext(TransactionsContext);
 
-  function validate(values: SearchFormValues) {
-    const errors: Partial<SearchFormValues> = {};
-    if (!values.searchInput) {
-      errors.searchInput = "Search input is required";
-    }
-    return errors;
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<SearchFormInputs>({
+    resolver: zodResolver(searchFormSchema),
+  });
+
+  async function handleSearchTransactions(data: SearchFormInputs) {
+    await getTransactions(data.query);
   }
 
   return (
-    <Formik
-      initialValues={{ searchInput: "" }}
-      onSubmit={handleSearchTransactions}
-      validate={validate}
-    >
-      {({ handleSubmit }) => (
-        <SearchFormContainer onSubmit={handleSubmit}>
-          <Field
-            type="text"
-            name="searchInput"
-            placeholder="Search for transactions"
-          />
-          <ErrorMessage name="searchInput" component="div" />
-          <button type="submit">
-            <MagnifyingGlass size={20} />
-            Search
-          </button>
-        </SearchFormContainer>
-      )}
-    </Formik>
+    <SearchFormContainer onSubmit={handleSubmit(handleSearchTransactions)}>
+      <input
+        type="text"
+        placeholder="Busque por transações"
+        {...register("query")}
+      />
+
+      <button type="submit" disabled={isSubmitting}>
+        <MagnifyingGlass size={20} />
+        Buscar
+      </button>
+    </SearchFormContainer>
   );
 }
