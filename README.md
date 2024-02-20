@@ -25,3 +25,4 @@
 - Routes and navigation: react-router-DOM
 - State management and data sharing: Context API
 - Backend: JSON server API
+- Backend Integration: Axios lib to Get and Post data

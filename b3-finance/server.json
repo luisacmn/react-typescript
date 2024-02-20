@@ -1,20 +1,36 @@
 {
-    "transactions": [
-        {
-            "id": 1, 
-            "description": "Web Development", 
-            "type": "income",
-            "category": "service",
-            "price": 14000,
-            "createdAt":"2024-02-18T13:05:52.657Z"
-        },
-        {
-            "id": 2, 
-            "description": "Dinner", 
-            "type": "outcome",
-            "category": "food",
-            "price": 200,
-            "createdAt":"2024-02-16T13:05:52.657Z"
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Web Development",
+      "type": "income",
+      "category": "service",
+      "price": 14000,
+      "createdAt": "2024-02-18T13:05:52.657Z"
+    },
+    {
+      "id": 2,
+      "description": "Dinner",
+      "type": "outcome",
+      "category": "food",
+      "price": 200,
+      "createdAt": "2024-02-16T13:05:52.657Z"
+    },
+    {
+      "description": "Course",
+      "price": 400,
+      "category": "Course",
+      "type": "outcome",
+      "createdAt": "2024-02-20T00:11:18.280Z",
+      "id": 3
+    },
+    {
+      "description": "CInema ticket",
+      "price": 50,
+      "category": "CInema ticket",
+      "type": "outcome",
+      "createdAt": "2024-02-20T00:29:36.344Z",
+      "id": 4
+    }
+  ]
 }
