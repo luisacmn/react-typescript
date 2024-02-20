@@ -26,3 +26,5 @@
 - State management and data sharing: Context API
 - Backend: JSON server API
 - Backend Integration: Axios lib to Get and Post data
+- Run Client: npm run dev
+- Run Server: npm run dev:server
