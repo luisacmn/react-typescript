@@ -31,6 +31,54 @@
       "type": "outcome",
       "createdAt": "2024-02-20T00:29:36.344Z",
       "id": 4
+    },
+    {
+      "description": "Site creation",
+      "price": 3000,
+      "category": "Site creation",
+      "type": "income",
+      "createdAt": "2024-02-20T00:32:48.868Z",
+      "id": 5
+    },
+    {
+      "description": "Fuel",
+      "price": 200,
+      "category": "Fuel",
+      "type": "outcome",
+      "createdAt": "2024-02-20T00:37:22.817Z",
+      "id": 6
+    },
+    {
+      "description": "Teste",
+      "price": 10,
+      "category": "Teste",
+      "type": "income",
+      "createdAt": "2024-02-20T00:45:14.588Z",
+      "id": 7
+    },
+    {
+      "description": "lalala",
+      "price": 20,
+      "category": "lalala",
+      "type": "income",
+      "createdAt": "2024-02-20T00:47:27.207Z",
+      "id": 8
+    },
+    {
+      "description": "a",
+      "price": 1,
+      "category": "a",
+      "type": "income",
+      "createdAt": "2024-02-20T00:52:02.199Z",
+      "id": 9
+    },
+    {
+      "description": "Testando",
+      "price": 20,
+      "category": "Testando",
+      "type": "income",
+      "createdAt": "2024-02-20T01:06:18.965Z",
+      "id": 10
     }
   ]
 }
