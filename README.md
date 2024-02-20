@@ -24,7 +24,9 @@
 - Componentization for reusable code and rganization
 - Routes and navigation: react-router-DOM
 - State management and data sharing: Context API
+- Form validation: react-hook-form and zod
 - Backend: JSON server API
 - Backend Integration: Axios lib to Get and Post data
 - Run Client: npm run dev
 - Run Server: npm run dev:server
+- Apply useCallback and useMemo to improve performance
